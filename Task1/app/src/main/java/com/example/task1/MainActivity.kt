@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     data = response.body()?.facilities!!
                     val rvFac = findViewById<View>(R.id.facilitiesRecyclerView) as RecyclerView
-                    val adapter = FacilitiesAdapter(data)
+                    val adapter = FacilitiesAdapter(data,response.body()?.exclusions!!)
                     rvFac.adapter = adapter
                     rvFac.layoutManager = LinearLayoutManager(baseContext)
                 }
